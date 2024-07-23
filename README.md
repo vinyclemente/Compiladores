@@ -7,7 +7,7 @@ INE5622-06238 (20241) - Introdução a Compiladores
 
 O projeto consiste de um analisar léxico e sintático para uma linguagem simplificada disponibilizada pelo professor. O projeto foi desenvolvido com a linguagem de programação Python.
 
-Integranges: Vinicius Clemente (21103915), Bruno Souza (xxxxxxxx) e Cinthia Shiratori (xxxxxxxx)
+Integranges: Vinicius Clemente (21103915), Bruno Souza (20204857) e Cinthia Shiratori (xxxxxxxx)
 
     Execução do projeto
 1 - Clone este repositório em sua máquina local
