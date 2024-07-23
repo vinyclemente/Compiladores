@@ -70,10 +70,26 @@ class Parser:
         self.match('ident')  # variável
         self.match('op')  # =
 
-        # Processa a expressão após o =
-        self.expression()
+        if self.token[0] == 'ident' and self.tokens[0][0] == 'delim' and self.tokens[0][1] == '(':
+            self.function_call()
+        else:
+            self.expression()
 
         self.match('delim')  # ; após a expressão
+
+    def function_call(self):
+        self.match('ident')  # nome da função
+        self.match('delim')  # (
+        self.arguments()
+        self.match('delim')  # )
+
+    def arguments(self):
+        if self.token[0] == 'ident' or self.token[0] == 'int_constant':
+            self.match(self.token[0])
+            while self.token[0] == 'delim' and self.token[1] == ',':
+                self.match('delim')  # ,
+                self.match('ident')  # argumento
+        # Permite lista de argumentos, mas não exige
 
     def expression(self):
         self.operand()
@@ -84,7 +100,7 @@ class Parser:
     def operand(self):
         if self.token[0] == 'ident' or self.token[0] == 'int_constant':
             self.match(self.token[0])
-        elif self.token[0] == 'delim' and self.token[1] in {'(', '[', ']'}:
+        elif self.token[0] == 'delim' and self.token[1] in {'(', '['}:
             self.match('delim')
             if self.token[0] == 'ident' or self.token[0] == 'int_constant':
                 self.match(self.token[0])
