@@ -4,7 +4,8 @@ class Lexer:
     def __init__(self, codigo):
         self.codigo = codigo
         self.tokens = []
-        self.token_pattern = re.compile(r'\s*(?P<ident>[a-zA-Z_][a-zA-Z_0-9]*)|'
+        # Atualizar a expressão regular para reconhecer identificadores com índices
+        self.token_pattern = re.compile(r'\s*(?P<ident>[a-zA-Z_][a-zA-Z_0-9]*(?:\s*\[\s*\d+\s*\])*)|'
                                         r'(?P<int_constant>\d+)|'
                                         r'(?P<op>[+\-*/=])|'
                                         r'(?P<delim>[;,.(){}[\]])|'

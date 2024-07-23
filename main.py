@@ -6,8 +6,9 @@ def main():
     codigo = '''
     def func1 ( int A , int B )
     {
-    int C = A + B ;
-    int D = B * C ;
+    int SM [2];
+    SM [0] = A + B ;
+    SM [1] = B * C ;
     return ;
     }
 
